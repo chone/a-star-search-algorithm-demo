@@ -1,0 +1,100 @@
+#map {
+  font-size: 0;
+}
+
+.grid {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background: #ccc;
+  border: 2px solid #333;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid:hover .btn {
+  position: relative;
+  font-size: 12px;
+  height: 33.33%;
+  cursor: pointer;
+  line-height: 26px;
+  text-align: center;
+  background: rgba(255, 255, 255, .6);
+}
+
+.grid .btn1:hover {
+  background: yellow;
+}
+
+.grid .btn2:hover {
+  background: #666;
+}
+
+.grid .btn3:hover {
+  background: red;
+}
+
+.bloc {
+  background: #666;
+  border-color: #666;
+}
+
+.open {
+  border-color: green;
+}
+
+.close {
+  border-color: blue;
+}
+
+.path {
+  background: green;
+}
+
+.starting {
+  background: yellow;
+}
+
+.destination {
+  background: red;
+}
+
+.h {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: #000;
+  font-size: 14px;
+}
+
+.g {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  color: #000;
+  font-size: 14px;
+}
+
+.f {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  color: #000;
+  font-size: 14px;
+}
+
+.arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
