@@ -13,6 +13,16 @@ function main() {
   window.dest = [6, 3];
 
   run();
+
+  var $mode = document.getElementById('mode');
+  $mode.onchange = function(e) {
+    var $map = document.getElementById('map');
+    if ($mode.checked) {
+      $map.classList.add('edit-mode');
+    } else {
+      $map.classList.remove('edit-mode');
+    }
+  }
 }
 
 function create() {

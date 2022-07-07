@@ -43,8 +43,36 @@ function end(point, cells) {
   cells[point[1]][point[0]].classList.add('destination');
 }
 
+var current;
+
+function updateCurrent(point, cells) {
+  var n = cells[point.y][point.x];
+
+  if (current) {
+    current.classList.remove('current');
+  }
+
+  current = n;
+  current.classList.add('current');
+}
+
+var head;
+
+function updateHead(point, cells) {
+  var n = cells[point.y][point.x];
+  
+  if (head) {
+    head.classList.remove('head');
+  }
+
+  head = n;
+  head.classList.add('head');
+}
+
+
 function update(point, cells, type) {
   var n = cells[point.y][point.x];
+
   var html = '<div class="g">' + (point.g || '') + '</div>' +
     '<div class="h">' + (point.h || '') + '</div>' +
     '<div class="f">' + (point.f || '') + '</div>';
@@ -104,6 +132,12 @@ function update(point, cells, type) {
   } else if (type == 'path') {
     n.classList.add('path');
     n.classList.add('close');
+    if (head) {
+      head.classList.remove('head');
+    }
+    if (current) {
+      current.classList.remove('current');
+    }
   }
 }
 

@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.grid:hover .btn {
+.edit-mode .grid:hover .btn {
   position: relative;
   font-size: 12px;
   height: 33.33%;
@@ -22,21 +22,28 @@
   background: rgba(255, 255, 255, .6);
 }
 
-.grid .btn1:hover {
+.edit-mode .grid .btn1:hover {
   background: yellow;
 }
 
-.grid .btn2:hover {
+.edit-mode .grid .btn2:hover {
   background: #666;
 }
-
-.grid .btn3:hover {
+.edit-mode .grid .btn3:hover {
   background: red;
 }
 
 .bloc {
   background: #666;
   border-color: #666;
+}
+
+.current {
+  background: rgba(0, 225, 225, 0.2) !important;
+}
+
+.head {
+  background: rgba(244, 32, 17, 0.5) !important;
 }
 
 .open {

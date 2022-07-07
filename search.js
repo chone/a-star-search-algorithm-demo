@@ -38,7 +38,22 @@ function search(s, d, map, cells, step) {
       break
     };
 
-    nodes(n, map).forEach(function(node) {
+    var ns = nodes(n, map);
+
+    for (var i = 0; i < ns.length; i++) {
+
+      if (step > 0) {
+        if (count >= step) {
+          break;  
+        }
+      }
+
+      count++;
+
+      var node = ns[i];
+
+      updateCurrent(node, cells);
+
       if (find(node, open)) {
         node = find(node, open);
         var g = dist(n, node) + n.g;
@@ -55,10 +70,11 @@ function search(s, d, map, cells, step) {
         open.push(node);
         update(node, cells, 'open');
       }
-    }); 
+    }
 
     close.push(n);
     update(n, cells, 'close');
+    updateHead(n, cells);
   }
 
   var path = [];
