@@ -20,11 +20,9 @@ function search(s, d, map, cells, step) {
 
   var count = 0;
   var fin = false;
+  var n;
 
   while (open.length > 0) {
-    var n = min(open);    
-    remove(n, open);
-
     if (step > 0) {
       if (count >= step) {
         break;  
@@ -33,10 +31,15 @@ function search(s, d, map, cells, step) {
 
     count++;
 
+    n = min(open);    
+    remove(n, open);
+
     if (n.x == d.x && n.y == d.y) {
       fin = true;
       break
     };
+
+    updateHead(n, cells);
 
     var ns = nodes(n, map);
 
@@ -72,9 +75,14 @@ function search(s, d, map, cells, step) {
       }
     }
 
+    if (step > 0) {
+      if (count >= step) {
+        break;  
+      }
+    }
+
     close.push(n);
     update(n, cells, 'close');
-    updateHead(n, cells);
   }
 
   var path = [];
@@ -90,7 +98,7 @@ function search(s, d, map, cells, step) {
 }
 
 function remove(point, list) {
-  list.splice(list.indexOf(point), 1);
+  list.reverse().splice(list.indexOf(point), 1);
 }
 
 function value(point, p, d) {

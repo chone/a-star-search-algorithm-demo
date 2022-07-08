@@ -65,6 +65,10 @@ function updateHead(point, cells) {
     head.classList.remove('head');
   }
 
+  if (current) {
+    current.classList.remove('current');
+  }
+
   head = n;
   head.classList.add('head');
 }
